@@ -1,6 +1,5 @@
 import { CalendarOutlined } from "@ant-design/icons";
 import { Card, List } from "antd";
-import { Text } from "../../../components/text/text";
 import { Conditional } from "../../../components/conditional/conditional";
 import { UpcomingEventSkeleton } from "./upcomingEventsLoader";
 import { useFetchUpComingEvents } from "./hooks/useFetchEvents";
