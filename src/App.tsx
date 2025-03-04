@@ -1,65 +1,35 @@
-import { GitHubBanner, Refine, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
-import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
-
-import { useNotificationProvider } from "@refinedev/antd";
+import { RefineKbarProvider } from "@refinedev/kbar";
 import "@refinedev/antd/dist/reset.css";
-
-import dataProvider, {
-  GraphQLClient,
-  liveProvider,
-} from "@refinedev/nestjs-query";
-import routerBindings, {
+import {
   DocumentTitleHandler,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router";
+import { RefineKbar } from "@refinedev/kbar";
 import { App as AntdApp } from "antd";
-import { createClient } from "graphql-ws";
-import { BrowserRouter, Route, Routes } from "react-router";
-import { authProvider } from "./authProvider";
-import { ColorModeContextProvider } from "./contexts/color-mode";
-
-const API_URL = "https://api.nestjs-query.refine.dev/graphql";
-const WS_URL = "wss://api.nestjs-query.refine.dev/graphql";
-
-const gqlClient = new GraphQLClient(API_URL);
-const wsClient = createClient({ url: WS_URL });
+import { RefineProvider } from "./providers";
+import { AppRouter } from "./routes/router";
+import { BrowserRouter } from "react-router";
 
 function App() {
   return (
-    <BrowserRouter>
-      <GitHubBanner />
-      <RefineKbarProvider>
-        <ColorModeContextProvider>
+    <>
+      <BrowserRouter>
+        <RefineKbarProvider>
           <AntdApp>
             <DevtoolsProvider>
-              <Refine
-                dataProvider={dataProvider(gqlClient)}
-                liveProvider={liveProvider(wsClient)}
-                notificationProvider={useNotificationProvider}
-                routerProvider={routerBindings}
-                authProvider={authProvider}
-                options={{
-                  syncWithLocation: true,
-                  warnWhenUnsavedChanges: true,
-                  useNewQueryKeys: true,
-                  projectId: "Ph0tMD-9PAYVM-IAVA4g",
-                  liveMode: "auto",
-                }}
-              >
-                <Routes>
-                  <Route index element={<WelcomePage />} />
-                </Routes>
+              <RefineProvider>
+                <AppRouter />
                 <RefineKbar />
                 <UnsavedChangesNotifier />
                 <DocumentTitleHandler />
-              </Refine>
+              </RefineProvider>
               <DevtoolsPanel />
             </DevtoolsProvider>
           </AntdApp>
-        </ColorModeContextProvider>
-      </RefineKbarProvider>
-    </BrowserRouter>
+        </RefineKbarProvider>
+      </BrowserRouter>
+    </>
   );
 }
 
