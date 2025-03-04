@@ -2,7 +2,7 @@ import { Avatar as AntdAvatar } from "antd";
 import { Props } from "./interfaces";
 import { getNameInitials } from "@/helpers";
 
-const UserAvatar = ({ name, style, ...rest }: Props) => {
+const CustomAvatar = ({ name, style, ...rest }: Props) => {
   return (
     <AntdAvatar
       alt={name}
@@ -21,4 +21,4 @@ const UserAvatar = ({ name, style, ...rest }: Props) => {
   );
 };
 
-export default UserAvatar;
+export default CustomAvatar;

@@ -3,8 +3,7 @@ import { Col, Row } from "antd";
 import { UpcomingEvents } from "./components/upcoming-events";
 import { CountCard } from "@/components/count-card";
 import { useGetTotalCounts } from "./hooks/useGetCounts";
-import { LastestActivities } from "./components/activities";
-
+import { LastestActivities } from "./components/latest-activities";
 
 export const Home = () => {
   const { data, isLoading } = useGetTotalCounts();

@@ -1,13 +1,12 @@
 import { Button, Popover } from "antd";
 import { useGetIdentity } from "@refinedev/core";
-import UserAvatar from "../../../../components/avatar/avatar";
-
 import type { User } from "@/interfaces/graphql/graphql";
 import { Text } from "../../../../components/text/text";
 import { SettingOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { AccountSettings } from "../account-setting";
 import { Conditional } from "@/components/conditional/conditional";
+import CustomAvatar from "../../../../components/avatar/avatar";
 
 const CurrentUser = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +48,7 @@ const CurrentUser = () => {
         styles={{ body: { padding: 0 }, root: { zIndex: 999 } }}
         content={content}
       >
-        <UserAvatar
+        <CustomAvatar
           name={user?.name}
           src={user?.avatarUrl}
           size="default"

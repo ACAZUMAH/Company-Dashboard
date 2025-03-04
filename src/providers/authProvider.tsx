@@ -22,12 +22,12 @@ export const authProvider: AuthProvider = {
           },
           rawQuery: `
             mutation Register($email: String!, $password: String!){
-                register(input: { email: $email, password: $password }) {
-                  user {
+                register(registerInput: { email: $email, password: $password }) {
+                  User {
                     id
                     email
                   }
-                  token
+                  accessToken
                 }
             }`,
         },
@@ -42,12 +42,12 @@ export const authProvider: AuthProvider = {
         redirectTo: "/",
         user
       };
-    } catch (error) {
+    } catch (error: any) {
       return {
         success: false,
         error: {
-          message: "Registration failed",
-          name: "RegistrationError",
+          message: error.message || "Registration failed" ,
+          name: "Registration Error",
         },
       };
     }

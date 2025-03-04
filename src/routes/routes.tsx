@@ -29,12 +29,12 @@ export const routes: RouteObject[] = [
     ],
   },
   {
-    path: routesEndpoints.REGISTER,
-    element: <Register />,
-  },
-  {
     path: routesEndpoints.LOGIN,
     element: <Login />,
+  },
+  {
+    path: routesEndpoints.REGISTER,
+    element: <Register />,
   },
   {
     path: routesEndpoints.FORGOTPASSWORD,

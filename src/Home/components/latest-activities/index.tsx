@@ -1,11 +1,20 @@
 import { Card, List } from "antd";
 import React from "react";
 import { UnorderedListOutlined } from "@ant-design/icons";
-import { Title } from "@/components/title";
+import { Title } from "@/components";
 import { Conditional } from "@/components/conditional/conditional";
+import { ActivitiesLoader } from "./components";
+import { useFetchLatestActivities } from "./hooks/usefetchActivities";
+import { ActivitiesList } from "./components";
 
 export const LastestActivities = () => {
-  const isLoading = true;
+  const { data, audit, isLoading, isError, error } = useFetchLatestActivities();
+
+  if (isError) {
+    console.log(error);
+    return null;
+  }
+
   return (
     <div>
       <Card
@@ -18,12 +27,17 @@ export const LastestActivities = () => {
           <List
             itemLayout="horizontal"
             dataSource={Array.from({ length: 5 }).map((_, index) => ({
-              id: index
+              id: index,
             }))}
+            renderItem={(_, index) => <ActivitiesLoader key={index} />}
           />
         </Conditional>
         <Conditional condition={!isLoading}>
-          <List />
+          <List
+            itemLayout="horizontal"
+            dataSource={audit?.data}
+            renderItem={(item) => <ActivitiesList item={item} deals={data}/>}
+          />
         </Conditional>
       </Card>
     </div>

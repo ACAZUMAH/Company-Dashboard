@@ -1,15 +1,11 @@
 import { CalendarOutlined } from "@ant-design/icons";
-import { Card, List } from "antd";
-import { Conditional } from "../../../components/conditional/conditional";
-import { UpcomingEventSkeleton } from "./upcomingEventsLoader";
+import { Card, List } from "antd";;
 import { useFetchUpComingEvents } from "./hooks/useFetchEvents";
-import { EventList } from "@/components/events";
-import { EmptyEvents } from "./emptyEvents";
-import { Title } from '../../../components/title'
+import { EmptyEvents, EventList, UpcomingEventSkeleton } from "./components";
+import { Conditional, Title } from "@/components";
 
 export const UpcomingEvents = () => {
-
-  const { data, isLoading } = useFetchUpComingEvents()
+  const { data, isLoading } = useFetchUpComingEvents();
 
   return (
     <Card
@@ -18,7 +14,7 @@ export const UpcomingEvents = () => {
         body: { padding: "0, 1rem" },
         header: { padding: "8px, 16px" },
       }}
-      title={<Title icon={<CalendarOutlined />} text='Upcoming Events' />}
+      title={<Title icon={<CalendarOutlined />} text="Upcoming Events" />}
     >
       <Conditional condition={isLoading}>
         <List
