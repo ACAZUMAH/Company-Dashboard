@@ -1,7 +1,8 @@
 export const routesEndpoints = {
     HOME: '/',
     LOGIN: '/login',
-    COMPANIES: '/companies'
+    COMPANIES: '/companies',
+    CREATE_COMPANY: '/companies/new'
 }
 
 import { AuditOutlined, ShopOutlined, TeamOutlined } from "@ant-design/icons";

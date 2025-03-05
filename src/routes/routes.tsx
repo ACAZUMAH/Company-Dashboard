@@ -5,7 +5,8 @@ import { Home } from "../Home";
 import { Login } from "../login";
 import { CatchAllNavigate } from "@refinedev/react-router";
 import Mainlayout from "../layouts/main";
-import { Companies } from "@/Companies";
+import { CompanyList } from "@/Companies";
+import { CreateCompany } from "@/Companies/components";
 
 export const routes: RouteObject[] = [
   {
@@ -27,8 +28,17 @@ export const routes: RouteObject[] = [
       },
       {
         path: routesEndpoints.COMPANIES,
-        element: <Companies />
-      }
+        children: [
+          { index: true, element: <CompanyList /> },
+          {
+            path: routesEndpoints.CREATE_COMPANY,
+            element: <CreateCompany />,
+          },
+          {
+            
+          }
+        ],
+      },
     ],
   },
   {
