@@ -2,11 +2,10 @@ import { routesEndpoints } from "../constants";
 import { Authenticated, WelcomePage } from "@refinedev/core";
 import { Outlet, RouteObject } from "react-router-dom";
 import { Home } from "../Home";
-import { Register } from "../pages/register";
-import { Login } from "../pages/login";
-import { ForgotPassword } from "../pages/forgotPassword";
+import { Login } from "../login";
 import { CatchAllNavigate } from "@refinedev/react-router";
 import Mainlayout from "../layouts/main";
+import { Companies } from "@/Companies";
 
 export const routes: RouteObject[] = [
   {
@@ -26,18 +25,14 @@ export const routes: RouteObject[] = [
         index: true,
         element: <Home />,
       },
+      {
+        path: routesEndpoints.COMPANIES,
+        element: <Companies />
+      }
     ],
   },
   {
     path: routesEndpoints.LOGIN,
     element: <Login />,
-  },
-  {
-    path: routesEndpoints.REGISTER,
-    element: <Register />,
-  },
-  {
-    path: routesEndpoints.FORGOTPASSWORD,
-    element: <ForgotPassword />,
   },
 ];

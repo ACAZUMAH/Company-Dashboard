@@ -9,49 +9,6 @@ export const authCredentials = {
 };
 
 export const authProvider: AuthProvider = {
-  register: async ({ email, password }) => {
-    try {
-      const { data } = await dataProvider.custom({
-        url: API_URL,
-        method: "post",
-        headers: {},
-        meta: {
-          variables: {
-            email,
-            password,
-          },
-          rawQuery: `
-            mutation Register($email: String!, $password: String!){
-                register(registerInput: { email: $email, password: $password }) {
-                  User {
-                    id
-                    email
-                  }
-                  accessToken
-                }
-            }`,
-        },
-      });
-
-      const { user, token } = data.register
-
-      localStorage.setItem('token', token)
-
-      return {
-        success: true,
-        redirectTo: "/",
-        user
-      };
-    } catch (error: any) {
-      return {
-        success: false,
-        error: {
-          message: error.message || "Registration failed" ,
-          name: "Registration Error",
-        },
-      };
-    }
-  },
   login: async ({ email }) => {
     try {
       // call the login mutation
