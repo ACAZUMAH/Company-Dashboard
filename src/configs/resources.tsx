@@ -15,7 +15,7 @@ export const resources: IResourceItem[] = [
     list: "/companies",
     show: "/companies/:id",
     create: "/companies/new",
-    edit: "/companies/edit/id",
+    edit: "/companies/edit/:id",
     meta: {
       label: "Companies",
       icon: <ShopOutlined />,
@@ -25,7 +25,7 @@ export const resources: IResourceItem[] = [
     name: "tasks",
     list: "/tasks",
     create: "/tasks/new",
-    edit: "/tasks/edit/id",
+    edit: "/tasks/edit/:id",
     meta: {
       label: "Tasks",
       icon: <ProjectOutlined />,

@@ -7,9 +7,9 @@ import {
 } from "@refinedev/react-router";
 import { RefineKbar } from "@refinedev/kbar";
 import { App as AntdApp } from "antd";
-import { RefineProvider } from "./providers";
-import { AppRouter } from "./routes/router";
-import { BrowserRouter } from "react-router";
+import { RefineProvider } from "../providers";
+import { AppRouter } from "../routes/router";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 
 function App() {
   return (

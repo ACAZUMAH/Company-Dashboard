@@ -1,1 +1,2 @@
-export * from "./createCompany/creaate-company";
+export * from "./createCompany/create-company";
+export * from './updateCompany/updateCompany'

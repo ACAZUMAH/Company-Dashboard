@@ -31,13 +31,14 @@ export const CreateCompany = () => {
     },
   });
 
-  const { selectProps, queryResult } = useSelect<GetFieldsFromList<UsersSelectQuery>>({
+  const { selectProps, query: queryResult } = useSelect<GetFieldsFromList<UsersSelectQuery>>({
     resource: "users",
     optionLabel: "name",
     meta: {
       gqlQuery: selectUsersGql,
     },
   });
+
   return (
     <CompanyList>
       <Modal

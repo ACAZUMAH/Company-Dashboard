@@ -1,12 +1,12 @@
 import { routesEndpoints } from "../constants";
-import { Authenticated, WelcomePage } from "@refinedev/core";
+import { Authenticated, ErrorComponent, WelcomePage } from "@refinedev/core";
 import { Outlet, RouteObject } from "react-router-dom";
 import { Home } from "../Home";
 import { Login } from "../login";
 import { CatchAllNavigate } from "@refinedev/react-router";
 import Mainlayout from "../layouts/main";
 import { CompanyList } from "@/Companies";
-import { CreateCompany } from "@/Companies/components";
+import { CreateCompany, UpdateCompany } from "@/Companies/components";
 
 export const routes: RouteObject[] = [
   {
@@ -35,10 +35,15 @@ export const routes: RouteObject[] = [
             element: <CreateCompany />,
           },
           {
-            
+            path: routesEndpoints.UPDATE_COMPANY,
+            element: <UpdateCompany />
           }
         ],
       },
+      {
+        path: '*',
+        element: <ErrorComponent />
+      }
     ],
   },
   {

@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/package",
   "name": "Busy",
   "version": "0.1.0",
   "private": true,
