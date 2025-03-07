@@ -1,0 +1,31 @@
+import { Card, Skeleton } from "antd";
+
+export const ProjectCardSkeleton = () => {
+  return (
+    <Card
+      size="small"
+      styles={{
+        body: { display: "flex", justifyContent: "center", gap: "8px" },
+      }}
+      title={
+        <Skeleton.Button
+          active
+          size="small"
+          style={{
+            width: "200px",
+            height: "22px",
+          }}
+        />
+      }
+    >
+      <Skeleton.Button
+        active
+        size="small"
+        style={{
+          width: "200px",
+        }}
+      />
+      <Skeleton.Avatar active size="small" />
+    </Card>
+  );
+};
