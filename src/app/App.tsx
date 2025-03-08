@@ -9,7 +9,7 @@ import { RefineKbar } from "@refinedev/kbar";
 import { App as AntdApp } from "antd";
 import { RefineProvider } from "../providers";
 import { AppRouter } from "../routes/router";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router";
+import { BrowserRouter } from "react-router";
 
 function App() {
   return (
@@ -21,10 +21,7 @@ function App() {
               <RefineProvider>
                 <AppRouter />
                 <RefineKbar />
-                <UnsavedChangesNotifier />
-                <DocumentTitleHandler />
               </RefineProvider>
-              <DevtoolsPanel />
             </DevtoolsProvider>
           </AntdApp>
         </RefineKbarProvider>
