@@ -7,13 +7,12 @@ import { GetFields, GetVariables } from "@refinedev/nestjs-query";
 import { Form, Skeleton } from "antd";
 
 import { Text } from "@/components";
-import { Task } from "@/graphql/schema.types";
+import { Task } from "@/interfaces/graphql/schema.types";
 import {
   UpdateTaskMutation,
   UpdateTaskMutationVariables,
-} from "@/graphql/types";
-
-import { UPDATE_TASK_MUTATION } from "@/graphql/mutations";
+} from "@/interfaces/graphql/types";
+import { updateTaskMutationGql } from "@/Tasks/hooks";
 
 const TitleInput = ({
   value,
@@ -92,7 +91,7 @@ export const TitleForm = ({ initialValues, isLoading }: Props) => {
       invalidate({ invalidates: ["list"], resource: "tasks" });
     },
     meta: {
-      gqlMutation: UPDATE_TASK_MUTATION,
+      gqlMutation: updateTaskMutationGql,
     },
   });
 

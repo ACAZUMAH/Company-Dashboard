@@ -12,7 +12,7 @@ import {
   UpdateTaskMutation,
   UpdateTaskMutationVariables,
   UsersSelectQuery,
-} from "@/graphql/types";
+} from "@/interfaces/graphql/types";
 
 import { selectStagesGql, updateTaskMutationGql } from "@/Tasks/hooks";
 

@@ -1,4 +1,4 @@
-import type * as Types from './types';
+import type * as Types from './schema.types';
 
 export type UpdateUserMutationVariables = Types.Exact<{
   input: Types.UpdateOneUserInput;

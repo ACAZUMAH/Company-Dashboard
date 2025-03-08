@@ -21,9 +21,9 @@ import {
   UsersForm,
   UsersHeader,
 } from "@/components";
-import { Task } from "@/graphql/schema.types";
 
-import { UPDATE_TASK_MUTATION } from "@/graphql/mutations";
+import { Task } from "@/interfaces/graphql/schema.types";
+import { updateTaskMutationGql } from "../hooks";
 
 export const UpdateTask = () => {
   const [activeKey, setActiveKey] = useState<string | undefined>();
@@ -37,7 +37,7 @@ export const UpdateTask = () => {
     defaultVisible: true,
 
     meta: {
-      gqlMutation: UPDATE_TASK_MUTATION,
+      gqlMutation: updateTaskMutationGql,
     },
   });
 

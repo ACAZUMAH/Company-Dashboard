@@ -13,7 +13,8 @@ import { updateCompanyMutationGql } from "../hooks/useUpdateCompany";
 
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { selectUsersGql } from "../../createCompany/hooks/useSelectUsersQuery";
-import { UsersSelectQuery } from "@/graphql/types";
+import { UsersSelectQuery } from '@/interfaces/graphql/types';
+
 
 
 export const UpdateForm = () => {

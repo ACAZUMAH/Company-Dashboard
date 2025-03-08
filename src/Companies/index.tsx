@@ -13,11 +13,13 @@ import {
 import { SearchOutlined } from "@ant-design/icons";
 import CustomAvatar from "@/components/avatar/avatar";
 import { Text } from "@/components";
-import { Company } from "@/graphql/schema.types";
+
 import { currencyNumber } from "@/helpers";
 import React, { useState } from "react";
+import { CompaniesListQuery } from "@/interfaces/graphql/types";
+import { GetFieldsFromList } from "@refinedev/nestjs-query";
 
-// type Company = GetFieldsFromList<CompaniesListQuery>;
+type Company = GetFieldsFromList<CompaniesListQuery>;
 
 export const CompanyList = ({ children }: React.PropsWithChildren) => {
   const [searchValue, setSearchValue] = useState<string>("");

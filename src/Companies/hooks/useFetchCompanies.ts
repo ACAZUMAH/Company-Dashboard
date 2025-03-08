@@ -1,4 +1,7 @@
+import type { CompaniesListQuery } from "@/interfaces/graphql/types";
 import { useTable } from "@refinedev/antd";
+import { HttpError } from "@refinedev/core";
+import  { GetFieldsFromList } from "@refinedev/nestjs-query";
 import gql from "graphql-tag";
 
 export const companiesListGql = gql`
@@ -25,10 +28,20 @@ export const companiesListGql = gql`
 `;
 
 export const useFetchCompaniesList = (searchValue?: string) => {
-  const { tableProps, filters } = useTable({
+  const { tableProps, filters } = useTable<
+    GetFieldsFromList<CompaniesListQuery>,
+    HttpError,
+    GetFieldsFromList<CompaniesListQuery>
+  >({
     resource: "companies",
     onSearch: (values: any) => {
-      return [{ field: "name", operator: "contains", value: searchValue || values.name }];
+      return [
+        {
+          field: "name",
+          operator: "contains",
+          value: searchValue || values.name,
+        },
+      ];
     },
     pagination: { pageSize: 12 },
     sorters: { initial: [{ field: "createdAt", order: "desc" }] },

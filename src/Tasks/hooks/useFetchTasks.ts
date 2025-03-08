@@ -1,4 +1,5 @@
-import { TasksQuery } from "@/graphql/types";
+
+import { TasksQuery } from "@/interfaces/graphql/types";
 import { useList } from "@refinedev/core";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import gql from "graphql-tag";

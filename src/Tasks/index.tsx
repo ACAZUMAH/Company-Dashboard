@@ -11,9 +11,14 @@ import {
 } from "./components";
 import { useFetchTasks, useFetchStages, updateStageGql } from "./hooks";
 import { useMemo } from "react";
-import { Task, TaskStage } from "@/graphql/schema.types";
 import { Conditional } from "@/components";
 import { DragEndEvent } from "@dnd-kit/core";
+import { GetFieldsFromList } from "@refinedev/nestjs-query";
+import { TasksQuery, TaskStagesQuery } from "@/interfaces/graphql/types";
+
+type Task = GetFieldsFromList<TasksQuery>
+
+type TaskStage = GetFieldsFromList<TaskStagesQuery> & { tasks: Task[] }
 
 export const TaskList = ({ children }: React.PropsWithChildren) => {
   const { replace } = useNavigation();
@@ -35,7 +40,7 @@ export const TaskList = ({ children }: React.PropsWithChildren) => {
 
     const grouped: TaskStage[] = stages.data.map((stage) => ({
       ...stage,
-      tasks: tasks.data.filter((task) => task.stageId?.toString() === stage.id) as Task[],
+      tasks: tasks.data.filter((task) => task.stageId?.toString() === stage.id),
     }));
     return {
       unasignedStage,

@@ -1,5 +1,5 @@
 import { Conditional, CustomAvatar, Text } from "@/components";
-import { User } from "@/graphql/schema.types";
+
 import {
   ClockCircleOutlined,
   DeleteOutlined,
@@ -23,6 +23,7 @@ import dayjs from "dayjs";
 import { getDateColor } from "@/helpers";
 import { useDelete, useNavigation } from "@refinedev/core";
 import Operation from "antd/es/transfer/operation";
+import { User } from "@/interfaces/graphql/schema.types";
 
 interface CardProps {
   id: string;

@@ -7,7 +7,8 @@ import { createCompanyMutation } from "./hooks/useCreatecompanyMutation";
 import { selectUsersGql } from "./hooks/useSelectUsersQuery";
 import { SelectOptionWithAvatar } from "@/components/avatar";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
-import { UsersSelectQuery } from "@/interfaces";
+import { UsersSelectQuery } from "@/interfaces/graphql/types";
+
 
 export const CreateCompany = () => {
   const go = useGo();
