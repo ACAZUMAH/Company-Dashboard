@@ -7,7 +7,7 @@ import { Area, AreaConfig } from "@ant-design/plots";
 interface props {
   resource: "companies" | "contacts" | "deals";
   isLoading: boolean | undefined;
-  totalCount: number;
+  totalCount?: number;
 }
 
 export const CountCard: React.FC<props> = ({
