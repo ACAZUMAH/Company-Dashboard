@@ -11,11 +11,11 @@ import {
 } from "./components";
 import { useFetchTasks, useFetchStages, updateStageGql } from "./hooks";
 import { useMemo } from "react";
-import { TaskStage } from "@/graphql/schema.types";
+import { Task, TaskStage } from "@/graphql/schema.types";
 import { Conditional } from "@/components";
 import { DragEndEvent } from "@dnd-kit/core";
 
-export const Task = ({ children }: React.PropsWithChildren) => {
+export const TaskList = ({ children }: React.PropsWithChildren) => {
   const { replace } = useNavigation();
 
   const { stages, isLoadingStages } = useFetchStages();
@@ -35,7 +35,7 @@ export const Task = ({ children }: React.PropsWithChildren) => {
 
     const grouped: TaskStage[] = stages.data.map((stage) => ({
       ...stage,
-      tasks: tasks.data.filter((task) => task.stageId?.toString() === stage.id),
+      tasks: tasks.data.filter((task) => task.stageId?.toString() === stage.id) as Task[],
     }));
     return {
       unasignedStage,

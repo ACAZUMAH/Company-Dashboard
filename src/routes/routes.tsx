@@ -7,7 +7,7 @@ import { CatchAllNavigate } from "@refinedev/react-router";
 import Mainlayout from "../layouts/main";
 import { CompanyList } from "@/Companies";
 import { CreateCompany, UpdateCompany } from "@/Companies/components";
-import { Task } from "@/Tasks";
+import { TaskList } from "@/Tasks";
 import { CreateTask, UpdateTask } from "@/Tasks/components";
 
 export const routes: RouteObject[] = [
@@ -45,9 +45,9 @@ export const routes: RouteObject[] = [
       {
         path: routesEndpoints.TASK,
         element: (
-          <Task>
+          <TaskList>
             <Outlet />
-          </Task>
+          </TaskList>
         ),
         children: [
           { path: routesEndpoints.CREATE_TASK, element: <CreateTask /> },

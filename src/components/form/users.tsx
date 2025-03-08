@@ -25,44 +25,28 @@ type Props = {
 };
 
 export const UsersForm = ({ initialValues, cancelForm }: Props) => {
-  // use the useForm hook to manage the form to add users to a task (assign task to users)
   const { formProps, saveButtonProps } = useForm<
     GetFields<UpdateTaskMutation>,
     HttpError,
-    /**
-     * Pick is a utility type from typescript that allows you to create a new type from an existing type by picking some properties from it.
-     * https://www.typescriptlang.org/docs/handbook/utility-types.html#picktype-keys
-     *
-     * Pick<Type, Keys>
-     * Type -> the type from which we want to pick the properties
-     * Keys -> the properties that we want to pick
-     */
     Pick<GetVariables<UpdateTaskMutationVariables>, "userIds">
   >({
     queryOptions: {
-      // disable the query to prevent fetching data on component mount
       enabled: false,
     },
-    redirect: false, // disable redirection
+    redirect: false,
     onMutationSuccess: () => {
-      // when the mutation is successful, call the cancelForm function to close the form
       cancelForm();
     },
-    // perform the mutation when the form is submitted
     meta: {
       gqlMutation: updateTaskMutationGql,
     },
   });
 
-  // use the useSelect hook to fetch the list of users from the server and display them in a select component
   const { selectProps } = useSelect<GetFieldsFromList<UsersSelectQuery>>({
-    // specify the resource from which we want to fetch the data
     resource: "users",
-    // specify the query that should be performed
     meta: {
       gqlQuery: selectStagesGql
     },
-    // specify the label for the select component
     optionLabel: "name",
   });
 

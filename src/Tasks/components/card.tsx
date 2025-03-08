@@ -40,9 +40,9 @@ export const ProjectCard: React.FC<CardProps> = ({
 }) => {
   const { token } = theme.useToken();
 
-  const { edit } = useNavigation()
+  const { edit } = useNavigation();
 
-  const { mutate: deleteTask } = useDelete()
+  const { mutate: deleteTask } = useDelete();
 
   const dropdownItems = useMemo(() => {
     const dropdownItems: MenuProps["items"] = [
@@ -50,14 +50,15 @@ export const ProjectCard: React.FC<CardProps> = ({
         label: "View Card",
         key: "1",
         icon: <EyeOutlined />,
-        onClick: () => edit('tasks', id, 'replace'),
+        onClick: () => edit("tasks", id, "replace"),
       },
       {
         danger: true,
         label: "Delete card",
         key: "2",
         icon: <DeleteOutlined />,
-        onClick: () => deleteTask({ resource: 'tasks', id, meta: { Operation: 'task' } }),
+        onClick: () =>
+          deleteTask({ resource: "tasks", id, meta: { Operation: "task" } }),
       },
     ];
     return dropdownItems;
@@ -94,7 +95,15 @@ export const ProjectCard: React.FC<CardProps> = ({
         extra={
           <Dropdown
             trigger={["click"]}
-            menu={{ items: dropdownItems }}
+            menu={{
+              items: dropdownItems,
+              onPointerDown: (e) => {
+                e.stopPropagation();
+              },
+              onClick: (e) => {
+                e.domEvent.stopPropagation();
+              },
+            }}
             placement="bottom"
             arrow={{ pointAtCenter: true }}
           >
