@@ -5,13 +5,10 @@ import { GetFields, GetVariables } from "@refinedev/nestjs-query";
 import { Button, DatePicker, Form, Space } from "antd";
 import dayjs from "dayjs";
 
-import { Task } from "@/graphql/schema.types";
-import {
-  UpdateTaskMutation,
-  UpdateTaskMutationVariables,
-} from "@/graphql/types";
 
 import { updateTaskMutationGql } from "@/Tasks/hooks";
+import { Task } from "@/interfaces/graphql/schema.types";
+import { UpdateTaskMutation, UpdateTaskMutationVariables } from "@/interfaces/graphql/types";
 
 type Props = {
   initialValues: {

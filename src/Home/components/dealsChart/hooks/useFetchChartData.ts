@@ -3,7 +3,8 @@ import gql from "graphql-tag";
 import { useMemo } from "react";
 import { mapDealsData } from "../helpers";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
-import { DashboardDealsChartQuery } from "@/interfaces";
+import { DashboardDealsChartQuery } from "@/interfaces/graphql/types";
+
 
 const chartDataGql = gql`
   query DashboardDealsChart(

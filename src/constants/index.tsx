@@ -9,6 +9,7 @@ export const routesEndpoints = {
   UPDATE_TASK: "/tasks/edit/:id"
 };
 
+import { BusinessType, CompanySize, Contact, Industry } from "@/interfaces/graphql/schema.types";
 import { AuditOutlined, ShopOutlined, TeamOutlined } from "@ant-design/icons";
 
 const IconWrapper = ({
@@ -32,12 +33,7 @@ const IconWrapper = ({
   );
 };
 
-import {
-  BusinessType,
-  CompanySize,
-  Contact,
-  Industry,
-} from "@/graphql/schema.types";
+
 
 export type TotalCountType = "companies" | "contacts" | "deals";
 

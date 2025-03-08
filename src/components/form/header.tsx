@@ -6,8 +6,7 @@ import dayjs from "dayjs";
 
 import { Text, UserTag } from "@/components";
 import { getDateColor } from "@/helpers";
-
-import { Task } from "@/graphql/schema.types";
+import { Task } from "@/interfaces/graphql/schema.types";
 
 type DescriptionProps = {
   description?: Task["description"];

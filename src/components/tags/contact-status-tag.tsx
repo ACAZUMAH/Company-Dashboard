@@ -7,8 +7,7 @@ import {
   PlayCircleOutlined,
 } from "@ant-design/icons";
 import { Tag, TagProps } from "antd";
-
-import { ContactStatus } from "@/graphql/schema.types";
+import { ContactStatus } from "@/interfaces/graphql/schema.types";
 
 type Props = {
   status: ContactStatus;

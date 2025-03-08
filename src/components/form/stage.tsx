@@ -9,14 +9,10 @@ import {
 import { FlagOutlined } from "@ant-design/icons";
 import { Checkbox, Form, Select, Space } from "antd";
 
-import {
-  TaskStagesSelectQuery,
-  UpdateTaskMutation,
-  UpdateTaskMutationVariables,
-} from "@/graphql/types";
 
 import { AccordionHeaderSkeleton } from "../accordion/accordion-header";
 import { selectStagesGql, updateTaskMutationGql } from "@/Tasks/hooks";
+import { TaskStagesSelectQuery, UpdateTaskMutation, UpdateTaskMutationVariables } from "@/interfaces/graphql/types";
 
 
 type Props = {

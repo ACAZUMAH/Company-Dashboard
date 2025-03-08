@@ -9,9 +9,9 @@ import {
 } from "@ant-design/icons";
 import { Button, Card, Input, Select, Space, Table } from "antd";
 import { statusOptions } from "@/constants";
-import { CompanyContactsTableQuery } from "@/graphql/types";
 import { ContactStatusTag, CustomAvatar, Text } from "@/components";
 import { companyContactsGql } from "../hooks/useCompanyContacts";
+import { CompanyContactsTableQuery } from "@/interfaces/graphql/types";
 
 type Contact = GetFieldsFromList<CompanyContactsTableQuery>;
 

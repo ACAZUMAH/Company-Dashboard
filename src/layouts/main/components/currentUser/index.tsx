@@ -1,12 +1,12 @@
 import { Button, Popover } from "antd";
 import { useGetIdentity } from "@refinedev/core";
-import type { User } from "@/interfaces/graphql/graphql";
 import { Text } from "../../../../components/text/text";
 import { SettingOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import { AccountSettings } from "../account-setting";
 import { Conditional } from "@/components/conditional/conditional";
 import CustomAvatar from "../../../../components/avatar/avatar";
+import type { User } from "@/interfaces/graphql/schema.types";
 
 const CurrentUser = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,4 +1,4 @@
-import { DashboardTotalCountsQuery } from "@/interfaces";
+import { DashboardTotalCountsQuery } from "@/interfaces/graphql/types";
 import { useCustom } from "@refinedev/core";
 import gql from "graphql-tag";
 

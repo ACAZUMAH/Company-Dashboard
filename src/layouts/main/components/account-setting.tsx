@@ -9,11 +9,8 @@ import { getNameInitials } from "../../../helpers";
 import { Text } from "../../../components/text/text";
 import UserAvatar from "@/components/avatar/avatar";
 
-import {
-  UpdateUserMutation,
-  UpdateUserMutationVariables,
-} from "@/graphql/types";
 import { updateUserMutation } from "./hooks/useUpdateUser";
+import { UpdateUserMutation, UpdateUserMutationVariables } from "@/interfaces/graphql/types";
 
 type Props = {
   opened: boolean;

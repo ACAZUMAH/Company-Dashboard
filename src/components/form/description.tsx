@@ -5,13 +5,9 @@ import { GetFields, GetVariables } from "@refinedev/nestjs-query";
 import MDEditor from "@uiw/react-md-editor";
 import { Button, Form, Space } from "antd";
 
-import { Task } from "@/graphql/schema.types";
-import {
-  UpdateTaskMutation,
-  UpdateTaskMutationVariables,
-} from "@/graphql/types";
-
 import { updateTaskMutationGql } from "@/Tasks/hooks";
+import { Task } from "@/interfaces/graphql/schema.types";
+import { UpdateTaskMutation, UpdateTaskMutationVariables } from "@/interfaces/graphql/types";
 
 type Props = {
   initialValues: {
